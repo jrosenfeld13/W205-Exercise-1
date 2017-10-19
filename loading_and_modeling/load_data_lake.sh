@@ -4,9 +4,10 @@
 mkdir stage_data
 cd stage_data
 
-wget https://data.medicare.gov/views/bg9k-emty/files/4a66c672-a92a-4ced-82a2-033c28581a90?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip -O flat_files.zip
-unzip flat_files.zip
-rm flat_files.zip
+wget https://data.medicare.gov/views/bg9k-emty/files/4a66c672-a92a-4ced-82a2-033c28581a90?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
+
+unzip Hospital_Revised_Flatfiles.zip
+rm Hospital_Revised_Flatfiles.zip
 
 ##Strip the first line of all of our necessary files, rename them, and move them to the parent directory
 tail -n +2 "Hospital General Information.csv" > /hospitals.csv
@@ -24,4 +25,4 @@ hdfs dfs -put /readmissions.csv /user/w205/hopsital_compare
 hdfs dfs -put /measures.csv /user/w205/hopsital_compare
 hdfs dfs -put /survey_responses.csv /user/w205/hopsital_compare
 
-rm stage_data
+cd ..
