@@ -3,7 +3,9 @@
 ##Download data and unzip files into the data subfolder
 mkdir data
 cd data
-wget -O flat_files.zip https://data.medicare.gov/views/bg9k-emty/files/4a66c672-a92a-4ced-82a2-033c28581a90?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip &&
+
+wget -O flat_files.zip https://data.medicare.gov/views/bg9k-emty/files/4a66c672-a92a-4ced-82a2-033c28581a90?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
+
 unzip flat_files.zip
 
 ##Strip the first line of all of our necessary files, rename them, and move them to the parent directory
