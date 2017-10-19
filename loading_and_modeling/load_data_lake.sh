@@ -19,10 +19,10 @@ tail -n +2 "hvbp_hcahps_11_10_2016.csv" > /survey_responses.csv
 ##Make hadoop directory and fill it with csv files
 hdfs dfs -mkdir /user/w205/hopsital_compare
 
-hdfs dfs -put /hospitals.csv /user/w205/hopsital_compare
-hdfs dfs -put /effective_care.csv /user/w205/hopsital_compare
-hdfs dfs -put /readmissions.csv /user/w205/hopsital_compare
-hdfs dfs -put /measures.csv /user/w205/hopsital_compare
-hdfs dfs -put /survey_responses.csv /user/w205/hopsital_compare
+hdfs dfs -put /hospitals.csv /user/w205/hospital_compare
+hdfs dfs -put /effective_care.csv /user/w205/hospital_compare
+hdfs dfs -put /readmissions.csv /user/w205/hospital_compare
+hdfs dfs -put /measures.csv /user/w205/hospital_compare
+hdfs dfs -put /survey_responses.csv /user/w205/hospital_compare
 
 cd ..
