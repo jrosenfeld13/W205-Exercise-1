@@ -1,0 +1,19 @@
+Filter out hospitals with fewer than 100 instances of each procedure (in order to limit large outliers in smaller hospitals).
+Select measure IDs, measure names, and the standard deviation of the procedure's score, grouped by measure ID.
+In order, the following procedures have the highest variability between hospitals:
+
+measure_id
+ED_1b   Average (median) time patients spent in emergency before admitted as an inpatient     101.90033518195315
+ED_2b   Average (median) time patients spent in emergency after the doctor decided to admit them as an inpatient     64.15524394923031
+OP_18b  Average time patients spent in emergency before leaving from the visit   41.95612685250597
+OP_31   Improvement in Patient's Visual Function within 90 Days Following Cataract Surgery      32.05242619040496
+OP_29   Endoscopy/polyp surveillance: appropriate follow-up interval for normal colonoscopy in average risk patients       23.82984165931116
+OP_21   Median time to pain med 17.904540886859266
+OP_30   Endoscopy/polyp surveillance: colonoscopy interval for patients with a history of adenomatous polyps - avoidance of inappropriate use      17.181503891211587
+OP_20   Door to diagnostic eval 15.244706894272976
+IMM_3_OP_27_FAC_ADHPCT  Healthcare workers given influenza vaccination  14.531610219873064
+VTE_5   Warfarin therapy discharge instructions 11.402382368571649
+
+The first three high variance procedures are all related to emergency room visits. Therefore, it's not a surprise that they are grouped together.
+Intuitively, it makes sense that time spent in the emergency room is a high variance "procedure." People come into the hospital with a variety
+of complications that require a different amount of attention.

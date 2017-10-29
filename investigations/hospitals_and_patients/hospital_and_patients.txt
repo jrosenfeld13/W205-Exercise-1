@@ -1,0 +1,14 @@
+Correlation between base_score and consistency_score: 0.65
+Correlation between base_score and overall quality rank: 0.3 (adjusted for rank**)
+Correlation between consistency_score and overall quality rank: .37 (adjusted for rank**)
+
+We find a moderate positive correlation between overall quality scores/rankings of hospitals and their patient survey scores.
+A 1 degree decrease in overall quality ranking (i.e. a better hospital) is, on average, associated with a 37% increase in
+patient survey score.
+
+
+**Note: a low rank for overall quality is a good thing, so the correlation comes out negative,
+but we need to flip the sign to adjust for this ranking system.
+
+***Note: attempts were made to use spearman correlation (for ranking) instead of pearson correlation, but our version of pyspark
+does not yet support the use of spearman correlation.

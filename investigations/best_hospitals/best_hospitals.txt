@@ -1,0 +1,33 @@
+Filter out measures with samples or denominators that are too small (sample > 50, denominator > 100) based on different tests of size and accuracy.
+Separate data tables based on measures that should be minimized or maximized.
+Rank each hospital compared to all others in each measure.
+Create a combined data table, group by hospital, and aggregate on average rank over all measures.
+
++-----------+--------------------+------------------------------+
+|provider_id|       hospital_name            |         avg(rank)|
++-----------+--------------------+------------------------------+
+|     520138|AURORA ST LUKES MEDICAL CENTER  |10.870967741935484|
+|     060100|MEDICAL CENTER OF AURORA        |11.033333333333333|
+|     170142|VIA CHRISTI HOSPITAL            |11.133333333333333|
+|     520139|AURORA WEST ALLIS MEDICAL CENTER|11.387096774193548|
+|     170123|WESLEY MEDICAL CENTER           |11.515151515151516|
+|     150005|HENDRICKS REGIONAL HEALTH       |12.172413793103448|
+|     150082|DEACONESS HOSPITAL              |12.548387096774194|
+|     140032|ST ANTHONYS MEMORIAL HOSPITAL   |12.655172413793103|
+|     510006|UNITED HOSPITAL CENTER          | 12.67741935483871|
+|     360068|TOLEDO HOSPITAL THE             |              13.0|
++-----------+--------------------------------+------------------+
+
+Scores for each measure seem to be scaled differently. Therefore, it seems to make sense to either normalize scores or rank each hospital relative to all
+others in each measure. We are going to rank the hospitals within each measure. This way, on aggregate, we get a sense of the consistency of how good a hospital
+is relative to all others.
+
+Interestingly, 3 hospitals in Aurora, CO are listed in the top 10. More exploration might be necessary to find out why, but an initial glance
+shows that these hospitals are run by Aurora Health Care system which likely passes on best practices and training to its facilities.
+
+An investigation of the [data dictionary](/DDB_Data_Dictionary.pdf), specifically with regards to our effective_care data table, indicates that some
+measures should be minimized (e.g. ED-1b average time patients spent in the emergency department, PC-01 percent of mothers whose deliveries were scheduled
+too early when unnecessary) while other measures clearly should be maximized to account for "high quality" care (e.g. OP-29 percentage of patients
+receiving appropriate recommendation for follow-up screening colonoscopy). We do not have similar problems in our readmissions data table where all
+measures should  be minimized (with some attention paid to the denominator/sample).
+See the investigations README for more granularity.

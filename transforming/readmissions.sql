@@ -8,8 +8,9 @@ SELECT
   measure_name,
   measure_id,
   compared_to_national,
-  cast(denominator AS INT),
-  cast(score AS INT),
-  cast(lower_estimate AS INT),
-  cast(higher_estimate AS INT)
-FROM readmissions;
+  cast(denominator AS INT) as denominator,
+  cast(score AS INT) as score,
+  cast(lower_estimate AS INT) as lower_estimate,
+  cast(higher_estimate AS INT) as higher_estimate
+FROM readmissions
+WHERE score NOT LIKE 'Not%';

@@ -1,0 +1,27 @@
+Follow the same ranking procedure as best_hospitals.py but group on state and aggregate on average rank over all measures.
+
++-----+-----------------+
+|state|        avg(rank)|
++-----+-----------------+
+|   NH|4.104895104895105|
+|   VT|4.931034482758621|
+|   MT|              5.5|
+|   ID|5.572815533980583|
+|   ND|5.909090909090909|
+|   OR|5.965811965811966|
+|   MO|7.381282495667245|
+|   IA|7.391752577319588|
+|   NE|7.734939759036145|
+|   CO|7.878151260504202|
++-----+-----------------+
+
+Given that we saw 3 hospitals in Aurora, CO listed in the best_hospitals, we should expect to see CO listed somewhere in best states. Indeed, CO shows up
+at #10 on the list. It is likely that other hospitals in CO brought down the performance of the few very good hospitals in CO, but not enough to bring it
+out of the rankings entirely.
+
+An investigation of the data dictionary, specifically with regards to our effective_care data table, indicates that
+some measures should be minimized (e.g. ED-1b average time patients spent in the emergency department, PC-01 percent of mothers whose deliveries
+were scheduled too early when unnecessary, and death rate  ) while other measures clearly should be maximized to account for "high quality"
+care (e.g. OP-29 percentage of patients receiving appropriate recommendation for follow-up screening colonoscopy). We do not have similar
+problems in our readmissions data table where all measures should effectively be minimized (with some attention paid to the denominator/sample).
+See the investigations README for more granularity.

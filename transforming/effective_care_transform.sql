@@ -8,6 +8,7 @@ SELECT
   condition,
   measure_id,
   measure_name,
-  cast(score AS INT),
-  cast(sample AS INT)
-FROM effective_care;
+  cast(score AS INT) AS score,
+  cast(sample AS INT) AS sample
+FROM effective_care
+WHERE score NOT LIKE 'Not%';
