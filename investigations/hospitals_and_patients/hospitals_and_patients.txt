@@ -3,8 +3,7 @@ Correlation between base_score and overall quality rank: 0.3 (adjusted for rank*
 Correlation between consistency_score and overall quality rank: .37 (adjusted for rank**)
 
 We find a moderate positive correlation between overall quality scores/rankings of hospitals and their patient survey scores.
-A 1 degree decrease in overall quality ranking (i.e. a better hospital) accounts for roughly 37% of the increase in
-patient survey score.
+Overall quality ranking (i.e. a better hospital) accounts for roughly 37% of the variation in patient survey score.
 
 
 **Note: a low rank for overall quality is a good thing, so the correlation comes out negative,
