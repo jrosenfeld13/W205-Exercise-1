@@ -30,7 +30,7 @@ cd ../investigations
 ```
 ./pyspark hospitals_and_patients.py
 ```
-[Correlation results/output](investigations/hospitals_and_patients/hospitals_and_patients.txt)
+[Correlation results/output](/investigations/hospitals_and_patients/hospitals_and_patients.txt)
 
 #### Investigation notes
 An investigation of the [data dictionary](/DDB_Data_Dictionary.pdf), specifically with regards to our effective_care data table, indicates that some measures should be minimized (e.g. ED-1b average time patients spent in the emergency department, PC-01 percent of mothers whose deliveries were scheduled too early when unnecessary) while other measures clearly should be maximized to account for "high quality" care (e.g. OP-29 percentage of patients receiving appropriate recommendation for follow-up screening colonoscopy). We do not have similar problems in our readmissions data table where all measures should  be minimized (with some attention paid to the denominator/sample).
