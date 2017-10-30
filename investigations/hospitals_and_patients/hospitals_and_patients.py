@@ -14,7 +14,6 @@ survey_spark = survey_spark.withColumn("consistency_rank", denseRank().over(Wind
 #############
 #best_hospitals.py
 #RUN BEST_HOSPITALS TO GET NECESSARY DATA IN CASE USED IN A DIFFERENT SPARK SESSION
-hive_context = HiveContext(sc)
 effective_care_spark = hive_context.table("effective_care_transform")
 readmissions_spark = hive_context.table("readmissions_transform")
 
@@ -38,14 +37,12 @@ ranked_max = effective_filtered_max.withColumn("rank", denseRank().over(Window.p
 ##rank min scores for readmissions
 ranked_readmissions = readmissions_filtered.withColumn("rank", denseRank().over(Window.partitionBy('measure_id').orderBy("score")))
 
-
 ##combine max and min ranked dataframes and find the average rank
 ranked_effective = ranked_max.unionAll(ranked_min)
 ranked_effective = ranked_effective.select('hospital_name','state','measure_id','measure_name','score','provider_id','rank') #filter columns that are shared with readmissions data
 ranked_readmissions = ranked_readmissions.select('hospital_name','state','measure_id','measure_name','score','provider_id','rank') #filter columns that are shared with effective_care data
 ranked_combine = ranked_effective.unionAll(ranked_readmissions)
 ranked_combine = ranked_combine.groupBy(["provider_id","hospital_name"]).agg({"rank":"mean","measure_id":"count"}).orderBy("avg(rank)")
-ranked_combine = ranked_combine.where(col('count(measure_id)') > 16)
 ############
 ############
 ############

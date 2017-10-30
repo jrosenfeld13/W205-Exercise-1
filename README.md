@@ -27,7 +27,9 @@ Note: "CLEAN_load_data_lake.sh" is also included to help cleanup between runs or
 ## Transforming
 Call each transformation to prepare data for further investigation:
 ```
-hive -f bulk_transform.sh
+cd ../transforming
+chmod a+rwx bulk_transformations.sh
+./bulk_transformations.sh
 ```
 "bulk_transformation.sh" calls each individual SQL transformation.
 
@@ -45,7 +47,9 @@ The transformations result in data tables following the entity-relationship diag
 
 ## Investigating
 Ensure spark components are exported into your PATH.
-
+```
+cd ../investigations
+```
 - **What hospitals are models of high-quality care (which hospitals have the most consistently high scores for a variety of procedures)?**
 
   Run the following [code](/investigations/best_hospitals/best_hospitals.py) for best hospital output:

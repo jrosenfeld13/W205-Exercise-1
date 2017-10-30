@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 hive -f measures_transform.sql
 hive -f effective_care_transform.sql
